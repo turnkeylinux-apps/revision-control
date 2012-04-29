@@ -32,6 +32,9 @@ PATCH=/usr/local/src/gitweb-force-texthtml.patch
 patch /usr/lib/cgi-bin/gitweb.cgi $PATCH
 rm $PATCH
 
+# remove default gitweb apache conf
+rm /etc/apache2/conf.d/gitweb
+
 # patch loggerhead to move apache-credit down
 cat >> /usr/share/pyshared/loggerhead/static/css/global.css<<EOF
 #loggerheadCont {
