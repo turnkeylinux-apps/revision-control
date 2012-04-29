@@ -98,7 +98,7 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
 <pre>bzr clone bzr://<?php print $_SERVER{'HTTP_HOST'}; ?>/bzr/helloworld</pre>
 
 <h2>Mercurial</h2>
-<pre>hg clone hg://<?php print $_SERVER{'HTTP_HOST'}; ?>/hg/helloworld</pre>
+<pre>hg clone http://<?php print $_SERVER{'HTTP_HOST'}; ?>/hg/helloworld</pre>
 
 <h2>Subversion</h2>
 <pre>svn co svn://<?php print $_SERVER{'HTTP_HOST'}; ?>/svn/helloworld</pre>
