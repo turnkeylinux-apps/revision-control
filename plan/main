@@ -1,0 +1,19 @@
+#include <turnkey/base>
+#include <turnkey/revisioncontrol>
+
+apache2-mpm-prefork     /* cant use worker due to websvn (php) */
+webmin-apache
+
+git-doc
+gitweb
+
+bzrtools
+bzr-rebase
+bzr-doc
+loggerhead
+python-pastedeploy      /* required when proxying through apache */
+
+subversion-tools
+websvn*
+
+build-essential         /* useful in a development setting... */

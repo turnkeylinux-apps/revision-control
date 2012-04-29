@@ -1,0 +1,77 @@
+turnkey-revision-control-11.1 (1) turnkey; urgency=low
+
+  * Transitioned to upstream version of loggerhead.
+  * Still using custom loggerhead init script (flexibility, stability).
+
+  * Major component versions:
+
+    git-core        1:1.7.0.4-1ubuntu0.1
+    gitweb          1:1.7.0.4-1ubuntu0.1
+    bzr             2.1.1-1
+    loggerhead      1.17+bzr400-1
+    subversion      1.6.6dfsg-2ubuntu1
+    websvn          2.3.0-1
+    mercurial       1.4.3-1
+
+    apache2         2.2.14-5ubuntu8.4
+    build-essential 11.4build1
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Sun, 19 Dec 2010 15:01:05 +0200
+
+turnkey-revision-control-2009.10 (2) hardy; urgency=low
+
+  * Installed all security updates (see manifest for package versions).
+
+  * Install security updates on firstboot (except when running live).
+
+  * Bugfix: Updated apt preferences for auto-security updates (LP#550307).
+
+  * Trick webmin into not checking for upgrades (managed by apt).
+
+  * Included latest version of inithooks and updated scripts.
+
+  * Included wget as per common request.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Mon, 29 Mar 2010 09:02:11 +0200
+
+turnkey-revision-control-2009.10 (1) hardy; urgency=low
+
+  * Initial public release of TurnKey Revision Control.
+
+  * Includes turnkey web control panel (convenience).
+
+  * SSL support out of the box.
+
+  * Version control systems with web frontends:
+
+    - git (gitweb):      git://addr/git
+    - svn (websvn):      svn://addr/svn
+    - bzr (loggerhead):  bzr://addr/bzr
+    - mercurial (hgweb): http://addr/hg
+
+  * Includes custom developed init scripts for bzr and svn.
+  * Includes bzrtools, bzr-rebase, subversion-tools (useful extras).
+  * Includes exemplary helloworld repositories.
+  * Pinned websvn to update directly from Debian (security).
+
+  * Regenerates all secrets during installation / firstboot (security).
+
+  * Major component versions:
+
+    git-core        1:1.5.4.3-1ubuntu2.1
+    gitweb          1:1.5.4.3-1ubuntu2.1
+    bzr             1.3.1-1ubuntu0.1
+    loggerhead      1.10-1turnkey+8+g5cd7b60
+    subversion      1.4.6dfsg1-2ubuntu1.1
+    websvn          2.0-4+lenny1
+    mercurial       0.9.5-3
+    apache2         2.2.8-1ubuntu0.11
+    build-essential 11.3ubuntu1
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Tue, 29 Sep 2009 15:39:41 +0200

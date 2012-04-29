@@ -1,0 +1,9 @@
+Web:        http://$ipaddr
+            https://$ipaddr
+Web shell:  https://$ipaddr:12320
+Webmin:     https://$ipaddr:12321
+GIT:        git://$ipaddr/git
+BZR:        bzr://$ipaddr/bzr
+SVN:        svn://$ipaddr/svn
+Mercurial:  http://$ipaddr/hg
+SSH/SFTP:   root@$ipaddr (port 22)

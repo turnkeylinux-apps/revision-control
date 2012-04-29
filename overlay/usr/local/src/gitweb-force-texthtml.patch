@@ -1,0 +1,25 @@
+--- gitweb.cgi.orig	2009-05-27 07:22:33.000000000 +0000
++++ gitweb.cgi	2009-05-27 07:23:51.000000000 +0000
+@@ -2418,13 +2418,15 @@
+ 	# 'application/xhtml+xml', otherwise send it as plain old 'text/html'.
+ 	# we have to do this because MSIE sometimes globs '*/*', pretending to
+ 	# support xhtml+xml but choking when it gets what it asked for.
+-	if (defined $cgi->http('HTTP_ACCEPT') &&
+-	    $cgi->http('HTTP_ACCEPT') =~ m/(,|;|\s|^)application\/xhtml\+xml(,|;|\s|$)/ &&
+-	    $cgi->Accept('application/xhtml+xml') != 0) {
+-		$content_type = 'application/xhtml+xml';
+-	} else {
+-		$content_type = 'text/html';
+-	}
++	#if (defined $cgi->http('HTTP_ACCEPT') &&
++	#    $cgi->http('HTTP_ACCEPT') =~ m/(,|;|\s|^)application\/xhtml\+xml(,|;|\s|$)/ &&
++	#    $cgi->Accept('application/xhtml+xml') != 0) {
++	#	$content_type = 'application/xhtml+xml';
++	#} else {
++	#	$content_type = 'text/html';
++	#}
++	#force text/html
++	$content_type = 'text/html';
+ 	print $cgi->header(-type=>$content_type, -charset => 'utf-8',
+ 	                   -status=> $status, -expires => $expires);
+ 	my $mod_perl_version = $ENV{'MOD_PERL'} ? " $ENV{'MOD_PERL'}" : '';

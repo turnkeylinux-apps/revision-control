@@ -1,0 +1,3 @@
+AddHandler cgi-script .cgi
+ScriptAliasMatch ^/hg(.*) /usr/lib/cgi-bin/hgweb.cgi/$1
+

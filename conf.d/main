@@ -1,0 +1,44 @@
+#!/bin/bash -ex
+
+# configure apache
+a2dissite default
+a2ensite revisioncontrol
+a2enmod rewrite
+a2enmod proxy
+a2enmod proxy_http
+rm /var/www/index.html
+
+# configure websvn
+debconf-set-selections << END
+websvn websvn/webservers string apache2
+websvn websvn/configuration boolean true
+websvn websvn/parentpath string /srv/repos/svn
+websvn websvn/repositories string
+END
+
+DEBIAN_FRONTEND=noninteractive dpkg-reconfigure websvn
+
+# configure integrated documentation
+DOCS=/var/www/docs
+tar -zxf $DOCS/hg.tar.gz -C $DOCS
+tar -zxf $DOCS/svn.tar.gz -C $DOCS
+rm $DOCS/*.tar.gz
+
+ln -s /usr/share/doc/git-doc $DOCS/git
+ln -s /usr/share/doc/bzr/html $DOCS/bzr
+
+# patch gitweb to force text/html (apache-credit)
+PATCH=/usr/local/src/gitweb-force-texthtml.patch
+patch /usr/lib/cgi-bin/gitweb.cgi $PATCH
+rm $PATCH
+
+# patch loggerhead to move apache-credit down
+cat >> /usr/share/pyshared/loggerhead/static/css/global.css<<EOF
+#loggerheadCont {
+    padding-bottom: 30px;
+}
+EOF
+
+# configure tkl-webcp
+sed -i "s|padding: 5pt 8px;|padding: 5pt 0px;|" /var/www/css/base.css
+

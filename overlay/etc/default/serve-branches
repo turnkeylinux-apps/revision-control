@@ -1,0 +1,17 @@
+#serve-branches options
+# --user-dirs              Serve user directories as ~user.
+# --trunk-dir=DIR          The directory that contains the trunk branches.
+# --port=USER_PORT         Port Loggerhead should listen on (defaults to 8080).
+# --host=USER_HOST         Host Loggerhead should listen on.
+# --prefix=USER_PREFIX     Specify host prefix.
+# --profile                Generate callgrind profile data to %d-stats.callgrind
+#                          on each request.
+# --reload                 Restarts the application when changing python files.
+#                          Only used for development purposes.
+# --log-folder=LOG_FOLDER  The directory to place log files in.
+
+LOGFOLDER=/var/log
+BZR_ROOT=/srv/repos/bzr
+
+DAEMON_OPTIONS="--host=127.0.0.1 --prefix=/bzr/ --log-folder=$LOGFOLDER $BZR_ROOT"
+
