@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+SRC=/usr/local/src
+
 # configure apache
 a2dissite default
 a2ensite revisioncontrol
@@ -28,9 +30,19 @@ ln -s /usr/share/doc/git-doc $DOCS/git
 ln -s /usr/share/doc/bzr/html $DOCS/bzr
 
 # patch gitweb to force text/html (apache-credit)
-PATCH=/usr/local/src/gitweb-force-texthtml.patch
+PATCH=$SRC/gitweb-force-texthtml.patch
 patch /usr/lib/cgi-bin/gitweb.cgi $PATCH
 rm $PATCH
+
+# replace gitweb theme with a nicer one (github inspired)
+GITWEB=/usr/share/gitweb
+mv $GITWEB/gitweb.js $GITWEB/gitweb.js.orig
+mv $GITWEB/gitweb.css $GITWEB/gitweb.css.orig
+
+tar -zxf $SRC/kogakure-gitweb-theme-*.tar.gz -C $SRC
+cp $SRC/kogakure-gitweb-theme-*/gitweb.js $GITWEB/gitweb.js
+cp $SRC/kogakure-gitweb-theme-*/gitweb.css $GITWEB/gitweb.css
+rm -rf $SRC/kogakure-gitweb-theme-*
 
 # remove default gitweb apache conf
 rm /etc/apache2/conf.d/gitweb

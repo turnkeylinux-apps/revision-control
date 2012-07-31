@@ -1,20 +1,22 @@
 turnkey-revision-control-12.0 (1) turnkey; urgency=low
 
+  * Added github inspired theme by kogakure to gitweb.
   * Replaced git-daemon-run with git-daemon-sysvinit.
   * Removed typo from mercurial helloworld hgrc (bugfix).
   * Fixed example mercurial clone address: hg -> http (bugfix).
 
   * Major component versions
 
-    git-core            1:1.7.2.5-3
-    gitweb              1:1.7.2.5-3
-    bzr                 2.1.2-1
-    loggerhead          1.17+bzr424-1
-    subversion          1.6.12dfsg-6
-    websvn              2.3.1-1
-    mercurial           1.6.4-1
-    build-essential     11.5
-    apache2             2.2.16-6+squeeze7
+    git-core                1:1.7.2.5-3
+    gitweb                  1:1.7.2.5-3
+    kogakure-gitweb-theme   revision 4f3a048 (upstream archive)
+    bzr                     2.1.2-1
+    loggerhead              1.17+bzr424-1
+    subversion              1.6.12dfsg-6
+    websvn                  2.3.1-1
+    mercurial               1.6.4-1
+    build-essential         11.5
+    apache2                 2.2.16-6+squeeze7
 
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific to this appliance.
