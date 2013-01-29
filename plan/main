@@ -14,6 +14,7 @@ loggerhead
 python-pastedeploy      /* required when proxying through apache */
 
 subversion-tools
-websvn*
+websvn
+enscript                /* websvn recommends */
 
 build-essential         /* useful in a development setting... */
