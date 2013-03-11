@@ -36,13 +36,15 @@ rm $PATCH
 
 # replace gitweb theme with a nicer one (github inspired)
 GITWEB=/usr/share/gitweb
-mv $GITWEB/gitweb.js $GITWEB/gitweb.js.orig
-mv $GITWEB/gitweb.css $GITWEB/gitweb.css.orig
+GITWEB_THEME=$SRC/gitweb-theme
 
-tar -zxf $SRC/kogakure-gitweb-theme-*.tar.gz -C $SRC
-cp $SRC/kogakure-gitweb-theme-*/gitweb.js $GITWEB/gitweb.js
-cp $SRC/kogakure-gitweb-theme-*/gitweb.css $GITWEB/gitweb.css
-rm -rf $SRC/kogakure-gitweb-theme-*
+[ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
+git clone https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
+unset HTTP_PROXY
+
+FILES="gitweb.js gitweb.css git-logo.png git-favicon.png"
+for f in $FILES; do mv $GITWEB/$f $GITWEB/$f.orig; done
+for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/$f; done
 
 # remove default gitweb apache conf
 rm /etc/apache2/conf.d/gitweb
