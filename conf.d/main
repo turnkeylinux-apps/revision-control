@@ -43,8 +43,8 @@ git clone https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
 unset HTTP_PROXY
 
 FILES="gitweb.js gitweb.css git-logo.png git-favicon.png"
-for f in $FILES; do mv $GITWEB/$f $GITWEB/$f.orig; done
-for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/$f; done
+for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
+for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
 
 # remove default gitweb apache conf
 rm /etc/apache2/conf.d/gitweb
