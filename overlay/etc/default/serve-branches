@@ -11,7 +11,7 @@
 # --log-folder=LOG_FOLDER  The directory to place log files in.
 
 LOGFOLDER=/var/log
-BZR_ROOT=/srv/repos/bzr
+BZR_ROOT=file:///srv/repos/bzr
 
 DAEMON_OPTIONS="--host=127.0.0.1 --prefix=/bzr/ --log-folder=$LOGFOLDER $BZR_ROOT"
 
