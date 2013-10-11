@@ -1,12 +1,18 @@
 turnkey-revision-control-13.0 (1) turnkey; urgency=low
 
-  * Please refer to turnkey-core's changelog for changes common to all
-    appliances, as well as the following git logs:
-    
-    - https://github.com/turnkeylinux/common
-    - https://github.com/turnkeylinux-apps/revision-control
+  * Git:
 
- -- Alon Swartz <alon@turnkeylinux.org>  Tue, 06 Aug 2013 15:37:33 +0300
+    - Updated gitweb-force-texthtml patch [#81].
+    - Gitweb static files are now in static/ [#104].
+
+  * Bazaar:
+
+    - Specify loggerhead bzr_root as absolute url [#116].
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Fri, 11 Oct 2013 11:04:45 +0300
 
 turnkey-revision-control-12.1 (1) turnkey; urgency=low
 
