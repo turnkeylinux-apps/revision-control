@@ -59,7 +59,7 @@ for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
 for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
 
 # patch loggerhead to move apache-credit down
-cat >> /usr/share/pyshared/loggerhead/static/css/global.css<<EOF
+cat >> /usr/share/loggerhead/static/css/global.css<<EOF
 #loggerheadCont {
     padding-bottom: 30px;
 }
