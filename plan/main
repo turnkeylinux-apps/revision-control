@@ -8,7 +8,7 @@ git-doc
 gitweb
 
 bzrtools
-bzr-rebase
+//bzr-rebase
 bzr-doc
 loggerhead
 python-pastedeploy      /* required when proxying through apache */
