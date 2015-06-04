@@ -27,9 +27,10 @@ END
 
 DEBIAN_FRONTEND=noninteractive dpkg-reconfigure websvn
 
-# complete websvn workaround
-#mv /etc/apache2/conf.d/* /etc/apache2/conf-avaialble
-#a2enconf websvn
+# complete websvn package bug workaround
+rm -rf /etc/apache2/conf.d/ 
+ln -s /etc/websvn/apache.conf /etc/apache2/conf-available/websvn.conf 
+a2enconf websvn
 
 # configure integrated documentation
 DOCS=/var/www/docs
