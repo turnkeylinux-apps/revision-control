@@ -12,7 +12,7 @@ a2enconf bzr
 a2enconf hg
 a2enconf git
 a2disconf gitweb
-#rm /var/www/index.html
+rm -r /var/www/html
 
 # work around websvn package bug
 mkdir /etc/apache2/conf.d/
@@ -54,7 +54,7 @@ GITWEB_THEME=$SRC/gitweb-theme
 git clone https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
 unset HTTP_PROXY
 
-FILES="gitweb.js gitweb.css git-logo.png git-favicon.png"
+FILES="gitweb.css git-logo.png git-favicon.png"
 for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
 for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
 
