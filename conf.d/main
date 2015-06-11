@@ -8,7 +8,14 @@ a2ensite revisioncontrol
 a2enmod rewrite
 a2enmod proxy
 a2enmod proxy_http
-rm /var/www/index.html
+a2enconf bzr 
+a2enconf hg
+a2enconf git
+a2disconf gitweb
+rm -r /var/www/html
+
+# work around websvn package bug
+mkdir /etc/apache2/conf.d/
 
 # configure websvn
 debconf-set-selections << END
@@ -20,6 +27,11 @@ END
 
 DEBIAN_FRONTEND=noninteractive dpkg-reconfigure websvn
 
+# complete websvn package bug workaround
+rm -rf /etc/apache2/conf.d/ 
+ln -s /etc/websvn/apache.conf /etc/apache2/conf-available/websvn.conf 
+a2enconf websvn
+
 # configure integrated documentation
 DOCS=/var/www/docs
 tar -zxf $DOCS/hg.tar.gz -C $DOCS
@@ -30,9 +42,9 @@ ln -s /usr/share/doc/git-doc $DOCS/git
 ln -s /usr/share/doc/bzr/html $DOCS/bzr
 
 # patch gitweb to force text/html (apache-credit)
-PATCH=$SRC/gitweb-force-texthtml.patch
-patch /usr/lib/cgi-bin/gitweb.cgi $PATCH
-rm $PATCH
+OLD='my $content_type = get_content_type_html();'
+NEW='my $content_type = "text/html";'
+sed -i "s|$OLD|$NEW|" /usr/lib/cgi-bin/gitweb.cgi
 
 # replace gitweb theme with a nicer one (github inspired)
 GITWEB=/usr/share/gitweb
@@ -42,15 +54,12 @@ GITWEB_THEME=$SRC/gitweb-theme
 git clone https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
 unset HTTP_PROXY
 
-FILES="gitweb.js gitweb.css git-logo.png git-favicon.png"
+FILES="gitweb.css git-logo.png git-favicon.png"
 for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
 for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
 
-# remove default gitweb apache conf
-rm /etc/apache2/conf.d/gitweb
-
 # patch loggerhead to move apache-credit down
-cat >> /usr/share/pyshared/loggerhead/static/css/global.css<<EOF
+cat >> /usr/share/loggerhead/static/css/global.css<<EOF
 #loggerheadCont {
     padding-bottom: 30px;
 }
