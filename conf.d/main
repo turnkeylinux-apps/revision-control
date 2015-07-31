@@ -12,6 +12,7 @@ a2enconf bzr
 a2enconf hg
 a2enconf git
 a2disconf gitweb
+a2enmod cgid
 rm -r /var/www/html
 
 # work around websvn package bug
