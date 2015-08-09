@@ -6,6 +6,8 @@ SRC=/usr/local/src
 a2dissite 000-default
 a2ensite revisioncontrol
 a2enmod rewrite
+a2enmod cgi
+a2enmod cgid
 a2enmod proxy
 a2enmod proxy_http
 a2enconf bzr 
@@ -40,6 +42,14 @@ rm $DOCS/*.tar.gz
 
 ln -s /usr/share/doc/git-doc $DOCS/git
 ln -s /usr/share/doc/bzr/html $DOCS/bzr
+
+cat >> /etc/default/git-daemon << EOF
+
+# fix Debian git-daemon silliness
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740154
+
+HOME=/nonexistent
+EOF
 
 # patch gitweb to force text/html (apache-credit)
 OLD='my $content_type = get_content_type_html();'
