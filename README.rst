@@ -24,7 +24,7 @@ and on top of that:
 
     Name        Web frontend    Web access          Protocol access
     ----        ------------    ----------          ---------------
-    Git         gitweb          http://addr/git     git://addr/git
+    Git         gitweb          http://addr/git     git://addr/git, http://addr/git, https://addr/git
     Bazaar      loggerhead      http://addr/bzr     bzr://addr/bzr
     Subversion  websvn          http://addr/svn     svn://addr/svn
     Mercurial   hgweb           http://addr/hg      http://addr/hg
