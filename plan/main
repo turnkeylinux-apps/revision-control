@@ -3,6 +3,7 @@
 
 apache2-mpm-prefork     /* cant use worker due to websvn (php) */
 webmin-apache
+libapache2-mod-perl2
 
 git-doc
 gitweb
