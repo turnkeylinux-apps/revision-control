@@ -5,6 +5,8 @@ turnkey-revision-control-14.0 (1) turnkey; urgency=low
     - removed bzr-rebase (Debian package no longer available).
     - multiple minor bug fixes.
 
+   * Hardened default SSL settings
+   
    * Note: Please refer to turnkey-core's changelog for changes common to all
      appliances. Here we only describe changes specific to this appliance.
 
