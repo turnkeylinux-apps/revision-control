@@ -36,4 +36,4 @@ Credentials *(passwords set at first boot)*
 -  Webmin, Webshell, SSH: username **root**
 
 
-.. _TurnKey Core: http://www.turnkeylinux.org/core
+.. _TurnKey Core: https://www.turnkeylinux.org/core
