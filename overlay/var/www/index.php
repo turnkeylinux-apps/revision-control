@@ -80,7 +80,7 @@
 href="http://en.wikipedia.org/wiki/Distributed_revision_control">Centralized
 vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Comparisons</a> 
                         </li>
-                        <li><a href="http://www.turnkeylinux.org/revision-control">TurnKey Revision Control release notes</a></li>
+                        <li><a href="https://www.turnkeylinux.org/revision-control">TurnKey Revision Control release notes</a></li>
                     </ul>
 
                 </div>
