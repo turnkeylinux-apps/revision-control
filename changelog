@@ -1,3 +1,12 @@
+turnkey-revision-control-14.2 (1) turnkey; urgency=low
+
+  * Fixed Smart HTTP misconfiguration [#407].
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Anton Pyrogovskyi <anton@turnkeylinux.org>  Sat, 07 May 2016 06:21:51 +0200
+
 turnkey-revision-control-14.1 (1) turnkey; urgency=low
 
   * Installed security updates.
