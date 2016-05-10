@@ -1,0 +1,8 @@
+#!/bin/bash -e
+# set git admin password
+
+. /etc/default/inithooks
+
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+$INITHOOKS_PATH/bin/githttp.py --pass="$APP_PASS"
+
