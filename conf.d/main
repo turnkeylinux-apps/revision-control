@@ -13,23 +13,12 @@ a2enmod proxy_http
 a2disconf gitweb
 a2enmod cgid
 
-# work around websvn package bug
-mkdir /etc/apache2/conf.d/
-
-# configure websvn
-debconf-set-selections << END
-websvn websvn/webservers string apache2
-websvn websvn/configuration boolean true
-websvn websvn/parentpath string /srv/repos/svn
-websvn websvn/repositories string
-END
-
-DEBIAN_FRONTEND=noninteractive dpkg-reconfigure websvn
-
-# complete websvn package bug workaround
-rm -rf /etc/apache2/conf.d/
-ln -s /etc/websvn/apache.conf /etc/apache2/conf-available/websvn.conf
-a2enconf websvn
+# configure viewvc
+sed -i '
+s|^#\(root_parents =\)[^=]*$|\1 /srv/repos/svn: svn|g;
+s|^#\(root_as_url_component =\)[^=]*$|\1 1|g;
+s|^#\(docroot =\)[^=]*$|\1 /docroot|g;
+' /etc/viewvc/viewvc.conf
 
 # configure integrated documentation
 DOCS=/var/www/docs

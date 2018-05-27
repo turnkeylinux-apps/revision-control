@@ -1,7 +1,7 @@
 #include <turnkey/base>
 #include <turnkey/revisioncontrol>
 
-apache2-mpm-prefork     /* cant use worker due to websvn (php) */
+apache2
 webmin-apache
 libapache2-mod-perl2
 
@@ -9,7 +9,6 @@ git-doc
 gitweb
 
 subversion-tools
-websvn
-enscript                /* websvn recommends */
+viewvc
 
 build-essential         /* useful in a development setting... */
