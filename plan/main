@@ -8,11 +8,6 @@ libapache2-mod-perl2
 git-doc
 gitweb
 
-bzrtools
-bzr-doc
-loggerhead
-python-pastedeploy      /* required when proxying through apache */
-
 subversion-tools
 websvn
 enscript                /* websvn recommends */

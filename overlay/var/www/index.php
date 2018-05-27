@@ -37,14 +37,6 @@
                         src="images/git.png"/>Git</a>
                     </div>
                     <div>
-                        <a href="/bzr"><img
-                        src="images/bazaar.png"/>Bazaar</a>
-                    </div>
-                    <div>
-                        <a href="/hg"><img
-                        src="images/mercurial.png"/>Mercurial</a>
-                    </div>
-                    <div>
                         <a href="/svn"><img
                         src="images/subversion.png"/>Subversion</a>
                     </div>
@@ -58,21 +50,18 @@
                         $_SERVER{'HTTP_HOST'}; ?>:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
+                    <br />
 
                     <h2>Resources and references</h2>
                     <ul>
                         <li>
                           <b>Official project websites:</b>
                           <a href="http://git-scm.com">Git</a>, 
-                          <a href="http://bazaar-vcs.org">Bazaar</a>,
-                          <a href="http://www.selenic.com/mercurial">Mercurial</a>, 
                           <a href="http://subversion.tigris.org">Subversion</a>
                         </li>
                         <li>
                           <b>Local documentation:</b>
                           <a href="/docs/git">Git</a>,
-                          <a href="/docs/bzr">Bazaar</a>,
-                          <a href="/docs/hg">Mercurial</a>,
                           <a href="/docs/svn">Subversion</a>
                         </li>
                         <li>
@@ -93,12 +82,6 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
 
 <h2>Git</h2>
 <pre>git clone git://<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
-
-<h2>Bazaar</h2>
-<pre>bzr clone bzr://<?php print $_SERVER{'HTTP_HOST'}; ?>/bzr/helloworld</pre>
-
-<h2>Mercurial</h2>
-<pre>hg clone http://<?php print $_SERVER{'HTTP_HOST'}; ?>/hg/helloworld</pre>
 
 <h2>Subversion</h2>
 <pre>svn co svn://<?php print $_SERVER{'HTTP_HOST'}; ?>/svn/helloworld</pre>

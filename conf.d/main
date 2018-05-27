@@ -27,18 +27,16 @@ END
 DEBIAN_FRONTEND=noninteractive dpkg-reconfigure websvn
 
 # complete websvn package bug workaround
-rm -rf /etc/apache2/conf.d/ 
-ln -s /etc/websvn/apache.conf /etc/apache2/conf-available/websvn.conf 
+rm -rf /etc/apache2/conf.d/
+ln -s /etc/websvn/apache.conf /etc/apache2/conf-available/websvn.conf
 a2enconf websvn
 
 # configure integrated documentation
 DOCS=/var/www/docs
-tar -zxf $DOCS/hg.tar.gz -C $DOCS
 tar -zxf $DOCS/svn.tar.gz -C $DOCS
 rm $DOCS/*.tar.gz
 
 ln -s /usr/share/doc/git-doc $DOCS/git
-ln -s /usr/share/doc/bzr/html $DOCS/bzr
 
 cat >> /etc/default/git-daemon << EOF
 
@@ -64,13 +62,6 @@ unset HTTP_PROXY
 FILES="gitweb.css git-logo.png git-favicon.png"
 for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
 for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
-
-# patch loggerhead to move apache-credit down
-cat >> /usr/share/loggerhead/static/css/global.css<<EOF
-#loggerheadCont {
-    padding-bottom: 30px;
-}
-EOF
 
 # configure tkl-webcp
 sed -i "s|padding: 5pt 8px;|padding: 5pt 0px;|" /var/www/css/base.css
