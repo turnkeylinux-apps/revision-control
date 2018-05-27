@@ -1,0 +1,3 @@
+Upgrade {
+    Post-Invoke {"/usr/local/src/gitweb-theme/setup -v -t /usr/share/gitweb"; };
+}
