@@ -1,3 +1,9 @@
+#!/usr/bin/perl
+
+print <<EOF;
+Content-Type: text/html; charset=utf-8
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html lang="en">
@@ -15,8 +21,8 @@
         <script src="js/ui.core.js" type="text/javascript"></script>
         <script src="js/ui.tabs.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(function() {
-                $('#container-1 > ul').tabs({ fx: { opacity: 'toggle'} });
+            \$(function() {
+                \$('#container-1 > ul').tabs({ fx: { opacity: 'toggle'} });
             });
         </script>
     </head>
@@ -41,16 +47,15 @@
                         src="images/subversion.png"/>Subversion</a>
                     </div>
                     <div>
-                        <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12320"><img
+                        <a href="https://$ENV{HTTP_HOST}:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
-                        <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12321"><img
+                        <a href="https://$ENV{HTTP_HOST}:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
-                    <br />
+                    <div></div>
+                    <div></div>
 
                     <h2>Resources and references</h2>
                     <ul>
@@ -81,7 +86,7 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
 <h1>Clone/checkout repository (helloworld)</h1>
 
 <h2>Git</h2>
-<pre>git clone git://<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
+<pre>git clone ssh://cvs@<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
 
 <h2>Subversion</h2>
 <pre>svn co svn://<?php print $_SERVER{'HTTP_HOST'}; ?>/svn/helloworld</pre>
@@ -92,3 +97,4 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
         </div>
     </body>
 </html>
+EOF
