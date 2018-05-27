@@ -4,6 +4,7 @@
 apache2
 webmin-apache
 libapache2-mod-perl2
+libapache2-mod-authnz-pam
 
 git-doc
 gitweb
