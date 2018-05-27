@@ -45,12 +45,10 @@ GITWEB=/usr/share/gitweb
 GITWEB_THEME=$SRC/gitweb-theme
 
 [ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
-git clone https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
+git clone --depth=1 https://github.com/kogakure/gitweb-theme.git $GITWEB_THEME
 unset HTTP_PROXY
 
-FILES="gitweb.css git-logo.png git-favicon.png"
-for f in $FILES; do mv $GITWEB/static/$f $GITWEB/static/$f.orig; done
-for f in $FILES; do ln -s $GITWEB_THEME/$f $GITWEB/static/$f; done
+$GITWEB_THEME/setup -v -t $GITWEB
 
 # configure tkl-webcp
 sed -i "s|padding: 5pt 8px;|padding: 5pt 0px;|" /var/www/css/base.css
