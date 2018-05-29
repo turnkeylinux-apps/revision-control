@@ -51,6 +51,7 @@ unset HTTP_PROXY
 $GITWEB_THEME/setup -v -t $GITWEB
 
 useradd -d /srv/repos vcs
+chown -R vcs:vcs /srv/repos
 
 # configure tkl-webcp
 sed -i "s|padding: 5pt 8px;|padding: 5pt 0px;|" /var/www/css/base.css
