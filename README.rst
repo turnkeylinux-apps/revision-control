@@ -2,7 +2,7 @@ Revision Control - All-in-one code repository
 =============================================
 
 An integrated revision control server combining the world's best open
-source Version Control Systems: Subversion, Git, Bazaar, and Mercurial.
+source Version Control Systems: Subversion and Git.
 A web interface for each system is included, making it easy to browse
 through the code base, compare revisions and manage repositories for
 multiple projects.
@@ -10,8 +10,7 @@ multiple projects.
 This appliance includes all the standard features in `TurnKey Core`_,
 and on top of that:
 
-- Revision Control systems supported: Git, Bazaar, Mercurial,
-  Subversion.
+- Revision Control systems supported: Git, Subversion.
    
    - Includes exemplary helloworld repositories.
    - Includes GitHub inspired theme by kogakure for gitweb.
@@ -24,16 +23,15 @@ and on top of that:
 
     Name        Web frontend    Web access          Protocol access
     ----        ------------    ----------          ---------------
-    Git         gitweb          http://addr/git     git://addr/git, http://addr/git, https://addr/git
-    Bazaar      loggerhead      http://addr/bzr     bzr://addr/bzr
-    Subversion  websvn          http://addr/svn     svn://addr/svn
-    Mercurial   hgweb           http://addr/hg      http://addr/hg
+    Git         gitweb          http://addr/git     vcs@addr:/git, http://addr/git, https://addr/git
+    Subversion  viewvc          http://addr/svn     svn://addr/svn, svn+ssh://addr/srv/repos/svn
     Repositories are stored in /srv/repos.
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
 -  Webmin, Webshell, SSH: username **root**
+-  Git, Subversion: username **vcs**
 
 
 .. _TurnKey Core: https://www.turnkeylinux.org/core

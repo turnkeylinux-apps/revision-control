@@ -1,3 +1,9 @@
+#!/usr/bin/perl
+
+print <<EOF;
+Content-Type: text/html; charset=utf-8
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html lang="en">
@@ -15,8 +21,8 @@
         <script src="js/ui.core.js" type="text/javascript"></script>
         <script src="js/ui.tabs.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(function() {
-                $('#container-1 > ul').tabs({ fx: { opacity: 'toggle'} });
+            \$(function() {
+                \$('#container-1 > ul').tabs({ fx: { opacity: 'toggle'} });
             });
         </script>
     </head>
@@ -37,42 +43,30 @@
                         src="images/git.png"/>Git</a>
                     </div>
                     <div>
-                        <a href="/bzr"><img
-                        src="images/bazaar.png"/>Bazaar</a>
-                    </div>
-                    <div>
-                        <a href="/hg"><img
-                        src="images/mercurial.png"/>Mercurial</a>
-                    </div>
-                    <div>
                         <a href="/svn"><img
                         src="images/subversion.png"/>Subversion</a>
                     </div>
                     <div>
-                        <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12320"><img
+                        <a href="https://$ENV{HTTP_HOST}:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
-                        <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12321"><img
+                        <a href="https://$ENV{HTTP_HOST}:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
+                    <div></div>
+                    <div></div>
 
                     <h2>Resources and references</h2>
                     <ul>
                         <li>
                           <b>Official project websites:</b>
                           <a href="http://git-scm.com">Git</a>, 
-                          <a href="http://bazaar-vcs.org">Bazaar</a>,
-                          <a href="http://www.selenic.com/mercurial">Mercurial</a>, 
                           <a href="http://subversion.tigris.org">Subversion</a>
                         </li>
                         <li>
                           <b>Local documentation:</b>
                           <a href="/docs/git">Git</a>,
-                          <a href="/docs/bzr">Bazaar</a>,
-                          <a href="/docs/hg">Mercurial</a>,
                           <a href="/docs/svn">Subversion</a>
                         </li>
                         <li>
@@ -92,13 +86,7 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
 <h1>Clone/checkout repository (helloworld)</h1>
 
 <h2>Git</h2>
-<pre>git clone git://<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
-
-<h2>Bazaar</h2>
-<pre>bzr clone bzr://<?php print $_SERVER{'HTTP_HOST'}; ?>/bzr/helloworld</pre>
-
-<h2>Mercurial</h2>
-<pre>hg clone http://<?php print $_SERVER{'HTTP_HOST'}; ?>/hg/helloworld</pre>
+<pre>git clone ssh://cvs@<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
 
 <h2>Subversion</h2>
 <pre>svn co svn://<?php print $_SERVER{'HTTP_HOST'}; ?>/svn/helloworld</pre>
@@ -109,3 +97,4 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
         </div>
     </body>
 </html>
+EOF
