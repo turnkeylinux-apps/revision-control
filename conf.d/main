@@ -26,14 +26,6 @@ rm $DOCS/*.tar.gz
 
 ln -s /usr/share/doc/git-doc $DOCS/git
 
-cat >> /etc/default/git-daemon << EOF
-
-# fix Debian git-daemon silliness
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740154
-
-HOME=/nonexistent
-EOF
-
 # patch gitweb to force text/html (apache-credit)
 OLD='my $content_type = get_content_type_html();'
 NEW='my $content_type = "text/html";'
