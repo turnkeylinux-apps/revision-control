@@ -10,7 +10,6 @@ a2enmod cgi
 a2enmod cgid
 a2enmod proxy
 a2enmod proxy_http
-a2disconf gitweb
 a2enmod cgid
 
 # configure viewvc
