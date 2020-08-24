@@ -38,13 +38,20 @@ Content-Type: text/html; charset=utf-8
 
             <div id="cp">
                 <div class="fragment-content">
+                    <div></div>
                     <div>
                         <a href="/git"><img
-                        src="images/git.png"/>Git</a>
+                        src="images/git.png"/>Git</a><br />
+                        <font size="-4">
+                        via <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb">GitWeb</a>
+                        </font>
                     </div>
                     <div>
                         <a href="/svn"><img
-                        src="images/subversion.png"/>Subversion</a>
+                        src="images/subversion.png"/>Subversion</a><br />
+                        <font size="-4">
+                        via <a href="http://viewvc.org/">ViewVC</a>
+                        </font>
                     </div>
                     <div>
                         <a href="https://$ENV{HTTP_HOST}:12320"><img
@@ -55,14 +62,12 @@ Content-Type: text/html; charset=utf-8
                         src="images/webmin.png"/>Webmin</a>
                     </div>
                     <div></div>
-                    <div></div>
-
                     <h2>Resources and references</h2>
                     <ul>
                         <li>
                           <b>Official project websites:</b>
-                          <a href="http://git-scm.com">Git</a>, 
-                          <a href="http://subversion.tigris.org">Subversion</a>
+                          <a href="https://git-scm.com">Git</a>,
+                          <a href="https://subversion.apache.org/">Subversion</a>
                         </li>
                         <li>
                           <b>Local documentation:</b>
@@ -82,15 +87,13 @@ vs. Distributed</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_revisio
 
             <div id="examples">
                 <div class="fragment-content">
+                    <h1>Clone/checkout repository (helloworld)</h1>
 
-<h1>Clone/checkout repository (helloworld)</h1>
+                    <h2>Git via SSH</h2>
+                    <pre>git clone ssh://vcs\@$ENV{'HTTP_HOST'}/~/git/helloworld</pre>
 
-<h2>Git</h2>
-<pre>git clone ssh://cvs@<?php print $_SERVER{'HTTP_HOST'}; ?>/git/helloworld</pre>
-
-<h2>Subversion</h2>
-<pre>svn co svn://<?php print $_SERVER{'HTTP_HOST'}; ?>/svn/helloworld</pre>
-
+                    <h2>Subversion via SVN</h2>
+                    <pre>svn co svn://$ENV{'HTTP_HOST'}/svn/helloworld</pre>
                 </div>
             </div>
 
