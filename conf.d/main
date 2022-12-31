@@ -12,6 +12,11 @@ a2enmod proxy
 a2enmod proxy_http
 a2enmod cgid
 
+# install viewvc from upstream
+unzip $SRC/viewvc-*.zip -d $SRC
+rm $SRC/viewvc-*.zip
+.$SRC/viewvc-1.2.1/viewvc-install
+
 # configure viewvc
 sed -i '
 s|^#\(root_parents =\)[^=]*$|\1 /srv/repos/svn: svn|g;
