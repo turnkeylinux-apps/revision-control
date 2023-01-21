@@ -22,7 +22,7 @@ sed -i '
 s|^#\(root_parents =\)[^=]*$|\1 /srv/repos/svn: svn|g;
 s|^#\(root_as_url_component =\)[^=]*$|\1 1|g;
 s|^#\(docroot =\)[^=]*$|\1 /docroot|g;
-' /etc/viewvc/viewvc.conf
+' /usr/local/viewvc-1.2.1/viewvc.conf
 
 # configure integrated documentation
 DOCS=/var/www/docs
