@@ -11,6 +11,7 @@ a2enmod cgid
 a2enmod proxy
 a2enmod proxy_http
 a2enmod cgid
+a2enmod headers
 
 # install viewvc from upstream
 unzip $SRC/viewvc-*.zip -d $SRC
