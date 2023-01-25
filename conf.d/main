@@ -16,7 +16,7 @@ a2enmod headers
 # install viewvc from upstream
 unzip $SRC/viewvc-*.zip -d $SRC
 rm $SRC/viewvc-*.zip
-.$SRC/viewvc-1.2.1/viewvc-install
+echo -e " \n " | .$SRC/viewvc-1.2.1/viewvc-install
 
 # configure viewvc
 sed -i '
