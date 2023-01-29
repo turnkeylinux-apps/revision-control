@@ -1,6 +1,7 @@
 #include <turnkey/base>
 #include <turnkey/revisioncontrol>
 
+python			/* required for viewvc install */
 apache2
 webmin-apache
 libapache2-mod-perl2
@@ -11,6 +12,5 @@ git-doc
 gitweb
 
 subversion-tools
-viewvc
 
 build-essential         /* useful in a development setting... */

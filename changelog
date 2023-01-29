@@ -1,3 +1,14 @@
+turnkey-revision-control-17.1 (1) turnkey; urgency=low
+
+  * Updating revision-control and its dependecies to v17.
+
+  * Downloading the ViewVC package from the upstream github repository.
+
+  * Note: Please refer to turnkey-core's 17.1 changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Mattie Darden <mattie@turnkeylinux.org>  Sat, 21 Jan 2023 18:37:47 +0000
+
 turnkey-revision-control-16.1 (1) turnkey; urgency=low
 
   * Rebuild on latest Debian Buster.
